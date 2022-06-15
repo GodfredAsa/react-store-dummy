@@ -7,7 +7,8 @@ const Header = (props) => {
         <Fragment>
             <header className={classes.header}>
                 <h1>SwitMeals</h1>
-              <HeaderCartButton/>
+                {/* parsing the fxnal prop to the HeaderCartButton component */}
+              <HeaderCartButton onClick={props.onShowCart}/>
             </header>
             
             <div className={classes["main-image"]}>
