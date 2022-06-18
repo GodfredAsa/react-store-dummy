@@ -10,8 +10,13 @@ const Cart = (props) => {
   const totalAmount = `$${cartCtx.totalAmount.toFixed(2)}`;
   const hasItems = cartCtx.items.length > 0;
 
-  const removeCartItemHandler = id => {}
-  const addCartItemHandler = item => {}
+  const removeCartItemHandler = id => {
+    cartCtx.removeItem(id);
+  }
+
+  const addCartItemHandler = item => {
+    cartCtx.addItem({...item, amount: 1})
+  }
 
   const cartItems = (
     <ul className={classes['cart-items']}>
@@ -19,7 +24,8 @@ const Cart = (props) => {
        <CartItem 
             key= {item.id} 
             name={item.name} 
-            price ={item.price} 
+            price ={item.price}
+            amount = {item.amount} 
             onRemove ={removeCartItemHandler.bind(null, item.id)} 
             onAdd = {addCartItemHandler.bind(null, item)}
             />
@@ -35,7 +41,6 @@ const Cart = (props) => {
         <span>{totalAmount}</span>
       </div>
       <div className={classes.actions}>
-        {/* fxnal close cart Modal used in  */}
         <button className={classes['button--alt']} onClick ={props.onClose}>Close</button>
       { hasItems && <button className={classes.button}>Order</button> }
       </div>
