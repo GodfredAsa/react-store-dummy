@@ -15,7 +15,7 @@ const DUMMY_MEALS = [
       price: 16.5,
     },
     {
-      id: 'm3',
+      id: '12134',
       name: 'Barbecue Burger',
       description: 'American, raw, meaty',
       price: 12.99,
@@ -29,7 +29,7 @@ const DUMMY_MEALS = [
   ];
 
 const AvailableMeals = () => {
-    const mealsList = DUMMY_MEALS.map((meal) => <MealItem key={meal.id} meal={meal}/>);
+    const mealsList = DUMMY_MEALS.map((meal) => <MealItem key={meal.id} meal={meal} id={meal.id}/>);
     return ( 
         <section className={classes.meals}>
       <Card>
