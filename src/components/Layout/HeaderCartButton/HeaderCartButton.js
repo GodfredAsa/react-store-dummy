@@ -23,7 +23,7 @@ const HeaderCartButton = (props) => {
             setBtnBump(false);
         }, 300);
         return () => clearTimeout(timer);
-    }, [items])
+    }, [items, setBtnBump, cartCtx])
 
     
     return ( 
